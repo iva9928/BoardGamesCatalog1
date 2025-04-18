@@ -10,8 +10,19 @@ using System.Windows.Forms;
 
 namespace BoardGamesCatalog.Data.Models
 {
-    internal class Categories
+    public class CreatorBoardgame
     {
-        
+        [Required]
+        public int CreatorId { get; set; }
+
+        [ForeignKey(nameof(CreatorId))]
+        public Creator Creator { get; set; }
+
+
+        [Required]
+        public int BoardgameId { get; set; }
+
+        [ForeignKey(nameof(BoardgameId))]
+        public Boardgame Boardgame { get; set; }
     }
 }

@@ -8,5 +8,6 @@ namespace BoardGamesCatalog.Data.Models
 {
     internal class Adresses
     {
+
     }
 }
