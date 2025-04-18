@@ -23,5 +23,7 @@ namespace BoardGamesCatalog.Data.Models
         [Required]
         [MaxLength(30)]
         public string Email { get; set; }
+
+        public virtual ICollection<CreatorBoardgame> CreatorsBoardgames { get; set; } = new HashSet<CreatorBoardgame>();
     }
 }
