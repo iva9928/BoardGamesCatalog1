@@ -27,5 +27,7 @@ namespace BoardGamesCatalog.Data.Models
 
         [Required]
         public int ZIP { get; set; }
+
+        public virtual ICollection<Publisher> Publishers { get; set; } = new HashSet<Publisher>();
     }
 }

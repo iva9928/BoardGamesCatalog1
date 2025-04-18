@@ -43,5 +43,7 @@ namespace BoardGamesCatalog.Data.Models
         [ForeignKey(nameof(PlayerRangeId))]
         public PlayerRange PlayerRange { get; set; }
 
+
+        public virtual ICollection<CreatorBoardgame> CreatorsBoardgames { get; set; } = new HashSet<CreatorBoardgame>();
     }
 }

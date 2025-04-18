@@ -18,5 +18,6 @@ namespace BoardGamesCatalog.Data.Models
         
         [Required]
         public int PlayersMax{ get; set; }
+        public virtual ICollection<Boardgame> Boardgames { get; set; } = new HashSet<Boardgame>();
     }
 }

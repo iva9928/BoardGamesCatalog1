@@ -35,7 +35,7 @@ namespace BoardGamesCatalog.Data.Models
         
         [MaxLength(20)]
         public string Phone { get; set; }
+        public virtual ICollection<Boardgame> Boardgames { get; set; } = new HashSet<Boardgame>();
 
-       
     }
 }
