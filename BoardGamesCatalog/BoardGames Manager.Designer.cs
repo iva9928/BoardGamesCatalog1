@@ -91,6 +91,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1056, 589);
             Controls.Add(dataGridView1);
             Controls.Add(btnDelete);
@@ -98,7 +99,8 @@
             Controls.Add(btnAdd);
             Controls.Add(label1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "BoardGames Manager";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
