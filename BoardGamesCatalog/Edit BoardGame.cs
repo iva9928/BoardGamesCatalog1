@@ -21,5 +21,15 @@ namespace BoardGamesCatalog
         {
 
         }
+
+        private void Edit_BoardGame_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
