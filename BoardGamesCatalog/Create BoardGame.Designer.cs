@@ -112,11 +112,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(371, 104);
+            label2.Location = new Point(316, 104);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(0, 20);
             label2.TabIndex = 19;
-            label2.Text = "label2";
             // 
             // txtBName
             // 
@@ -168,6 +167,7 @@
             btnSave.TabIndex = 26;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -177,6 +177,7 @@
             btnCancel.TabIndex = 27;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // Create_BoardGame
             // 
