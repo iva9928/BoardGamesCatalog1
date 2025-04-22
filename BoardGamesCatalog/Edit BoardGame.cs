@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BoardGamesCatalog.Data.Models;
+using BoardGamesCatalog.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +17,27 @@ namespace BoardGamesCatalog
         public Edit_BoardGame()
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private int boardGameId = -1;
+
+        public void EditBoardGame(Boardgame boardgame)
+        {
+            label2.Text = "" + boardgame.Id;
+            txtBName.Text = boardgame.Name;
+            txtBYear.Text = boardgame.YearPublished.ToString();
+            txtBRating.Text = boardgame.Rating.ToString();
+            txtBCategId.Text = boardgame.CategoryId.ToString();
+            txtBPublishId.Text = boardgame.PublisherId.ToString();
+            txtBPRId.Text = boardgame.PlayerRangeId.ToString();
+
+            this.boardGameId = boardgame.Id;
         }
 
         private void Edit_BoardGame_Load(object sender, EventArgs e)
@@ -44,12 +62,37 @@ namespace BoardGamesCatalog
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            //did it work
+            Boardgame boardgame = new Boardgame();
+            boardgame.Id = this.boardGameId;
+            boardgame.Name = this.txtBName.Text;
+            boardgame.YearPublished = int.Parse(txtBYear.Text);
+            boardgame.Rating = decimal.Parse(txtBRating.Text);
+            boardgame.CategoryId = int.Parse(txtBCategId.Text);
+            boardgame.PublisherId = int.Parse(txtBPublishId.Text);
+            boardgame.PlayerRangeId = int.Parse(txtBPRId.Text);
+
+            var repo = new BoardGamesRepository();
+
+            if (boardgame.Id == -1)
+            {
+                repo.CreateBoardGame(boardgame);
+            }
+            else
+            {
+                repo.UpdateBoardGame(boardgame);
+            }
+                
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void Edit_BoardGame_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,8 +11,12 @@ namespace BoardGamesCatalog.Repositories
 {
     public class BoardGamesRepository
     {
-        private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private readonly string conectionString = "Data Source=PC\\SQLEXPRESS;Initial Catalog=Boardgames;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Boardgame> GetBoardGames()
         {
             List<Boardgame> boardgames = new List<Boardgame>();
@@ -31,7 +35,7 @@ namespace BoardGamesCatalog.Repositories
 
                             while (reader.Read())
                             {
-                                Boardgame boardgame = new Boardgame(); 
+                                Boardgame boardgame = new Boardgame();
                                 boardgame.Id = reader.GetInt32(0);
                                 boardgame.Name = reader.GetString(1);
                                 boardgame.YearPublished = reader.GetInt32(2);
@@ -46,18 +50,23 @@ namespace BoardGamesCatalog.Repositories
                         }
 
                     }
-                    
+
 
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("");
-                
+
             }
-            return boardgames;  
+            return boardgames;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Boardgame? GetBoardGame(int id)
         {
             try
@@ -67,10 +76,10 @@ namespace BoardGamesCatalog.Repositories
                     //ccc
                     connection.Open();
 
-                    string sql = "SELECT * FROM boardgames WHERE id = @id";
+                    string sql = "SELECT * FROM Boardgames WHERE Id = @Id";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@Id", id);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -103,6 +112,10 @@ namespace BoardGamesCatalog.Repositories
             return null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="boardgame"></param>
         public void CreateBoardGame(Boardgame boardgame)
         {
             try
@@ -111,9 +124,9 @@ namespace BoardGamesCatalog.Repositories
                 {
                     connection.Open();
 
-                    string sql = "INSERT INTO boardgames"+
-                        "(Name, YearPublished, Rating, CategoryId, PublisherId, PlayerRangeId )VALUES " +
-                        "(@Name, @YearPublished, @Rating, @CategoryId, @PublisherId, @PlayerRangeId );";
+                    string sql = "INSERT INTO Boardgames" +
+                        "(Name, YearPublished, Rating, CategoryId, PublisherId, PlayersRangeId )VALUES " +
+                        "(@Name, @YearPublished, @Rating, @CategoryId, @PublisherId, @PlayersRangeId );";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@Name", boardgame.Name);
@@ -121,7 +134,7 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayerRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
 
                         command.ExecuteNonQuery();
                     }
@@ -136,6 +149,10 @@ namespace BoardGamesCatalog.Repositories
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="boardgame"></param>
         public void UpdateBoardGame(Boardgame boardgame)
         {
             try
@@ -144,10 +161,10 @@ namespace BoardGamesCatalog.Repositories
                 {
                     connection.Open();
 
-                    string sql = "UPDATE boardgames"+
+                    string sql = "UPDATE Boardgames " +
                         "SET Name = @Name, YearPublished = @YearPublished, Rating = @Rating, " +
-                        "CategoryId = @CategoryId, PublisherId = @PublisherId, PlayerRangeId = @PlayerRangeId" +
-                        "WHERE id = @id";
+                        "CategoryId = @CategoryId, PublisherId = @PublisherId, PlayersRangeId = @PlayersRangeId " +
+                        "WHERE Id = @Id";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@Name", boardgame.Name);
@@ -155,9 +172,9 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayerRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
 
-                        command.Parameters.AddWithValue("@id", boardgame.Id);
+                        command.Parameters.AddWithValue("@Id", boardgame.Id);
 
                         command.ExecuteNonQuery();
                     }
@@ -171,6 +188,8 @@ namespace BoardGamesCatalog.Repositories
 
             }
         }
+
+
         public void DeleteBoardGame(int id)
         {
             try
@@ -179,12 +198,12 @@ namespace BoardGamesCatalog.Repositories
                 {
                     connection.Open();
 
-                    string sql = "DELETE FROM boardgames WHERE id = @id";
-                       
+                    string sql = "DELETE FROM Boardgames WHERE Id = @Id";
+
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                      
-                        command.Parameters.AddWithValue("@id", id);
+
+                        command.Parameters.AddWithValue("@Id", id);
 
                         command.ExecuteNonQuery();
                     }
@@ -199,5 +218,5 @@ namespace BoardGamesCatalog.Repositories
             }
         }
     }
-    
+
 }
