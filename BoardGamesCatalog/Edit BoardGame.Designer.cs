@@ -171,6 +171,7 @@
             btnSave.TabIndex = 24;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click_1;
             // 
             // btnCancel
             // 
