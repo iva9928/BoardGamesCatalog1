@@ -189,7 +189,10 @@ namespace BoardGamesCatalog.Repositories
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteBoardGame(int id)
         {
             try
