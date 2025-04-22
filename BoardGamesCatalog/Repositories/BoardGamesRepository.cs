@@ -74,7 +74,6 @@ namespace BoardGamesCatalog.Repositories
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            connection.Open();
 
                             while (reader.Read())
                             {
@@ -82,7 +81,7 @@ namespace BoardGamesCatalog.Repositories
                                 boardgame.Id = reader.GetInt32(0);
                                 boardgame.Name = reader.GetString(1);
                                 boardgame.YearPublished = reader.GetInt32(2);
-                                boardgame.Rating = reader.GetInt32(3);
+                                boardgame.Rating = reader.GetDecimal(3);
                                 boardgame.CategoryId = reader.GetInt32(4);
                                 boardgame.PublisherId = reader.GetInt32(5);
                                 boardgame.PlayerRangeId = reader.GetInt32(6);

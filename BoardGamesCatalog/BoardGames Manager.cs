@@ -54,5 +54,14 @@ namespace BoardGamesCatalog
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Create_BoardGame create_BoardGame = new Create_BoardGame();
+            if (create_BoardGame.ShowDialog() == DialogResult.OK)
+            {
+                ReadBoardGame();
+            }
+        }
     }
 }
