@@ -31,5 +31,10 @@ namespace BoardGamesCatalog
         {
 
         }
+
+        private void lblPublisherId_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
