@@ -32,8 +32,8 @@
             btnAdd = new Button();
             btnEdit = new Button();
             btnDelete = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            boardgamesTable = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)boardgamesTable).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -46,6 +46,7 @@
             label1.TabIndex = 0;
             label1.Text = "List of BoardGames";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // btnAdd
             // 
@@ -74,18 +75,18 @@
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // boardgamesTable
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 135);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1032, 434);
-            dataGridView1.TabIndex = 4;
+            boardgamesTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            boardgamesTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            boardgamesTable.Location = new Point(12, 135);
+            boardgamesTable.MultiSelect = false;
+            boardgamesTable.Name = "boardgamesTable";
+            boardgamesTable.RowHeadersVisible = false;
+            boardgamesTable.RowHeadersWidth = 51;
+            boardgamesTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            boardgamesTable.Size = new Size(1032, 434);
+            boardgamesTable.TabIndex = 4;
             // 
             // Form1
             // 
@@ -93,7 +94,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1056, 589);
-            Controls.Add(dataGridView1);
+            Controls.Add(boardgamesTable);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
@@ -101,7 +102,7 @@
             Name = "Form1";
             Text = "BoardGames Manager";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)boardgamesTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -111,6 +112,6 @@
         private Button btnAdd;
         private Button btnEdit;
         private Button btnDelete;
-        private DataGridView dataGridView1;
+        private DataGridView boardgamesTable;
     }
 }
