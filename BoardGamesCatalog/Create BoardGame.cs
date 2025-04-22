@@ -16,10 +16,5 @@ namespace BoardGamesCatalog
         {
             InitializeComponent();
         }
-
-        private void Create_BoardGame_Load(object sender, EventArgs e)
-        {
-             
-        }
     }
 }

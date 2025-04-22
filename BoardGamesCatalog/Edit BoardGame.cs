@@ -36,10 +36,5 @@ namespace BoardGamesCatalog
         {
 
         }
-
-        private void Edit_BoardGame_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

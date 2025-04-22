@@ -49,148 +49,140 @@
             // lblBG
             // 
             lblBG.AutoSize = true;
-            lblBG.Location = new Point(55, 78);
+            lblBG.Location = new Point(63, 104);
             lblBG.Name = "lblBG";
-            lblBG.Size = new Size(82, 15);
+            lblBG.Size = new Size(106, 20);
             lblBG.TabIndex = 2;
             lblBG.Text = "Boardgame ID";
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(55, 109);
+            lblName.Location = new Point(63, 145);
             lblName.Name = "lblName";
-            lblName.Size = new Size(39, 15);
+            lblName.Size = new Size(49, 20);
             lblName.TabIndex = 4;
             lblName.Text = "Name";
             // 
             // lblYear
             // 
             lblYear.AutoSize = true;
-            lblYear.Location = new Point(55, 146);
+            lblYear.Location = new Point(63, 194);
             lblYear.Name = "lblYear";
-            lblYear.Size = new Size(84, 15);
+            lblYear.Size = new Size(105, 20);
             lblYear.TabIndex = 5;
             lblYear.Text = "Year Published";
             // 
             // lblRating
             // 
             lblRating.AutoSize = true;
-            lblRating.Location = new Point(56, 187);
+            lblRating.Location = new Point(64, 249);
             lblRating.Name = "lblRating";
-            lblRating.Size = new Size(41, 15);
+            lblRating.Size = new Size(52, 20);
             lblRating.TabIndex = 14;
             lblRating.Text = "Rating";
             // 
             // lblCategoryId
             // 
             lblCategoryId.AutoSize = true;
-            lblCategoryId.Location = new Point(55, 226);
+            lblCategoryId.Location = new Point(63, 302);
             lblCategoryId.Name = "lblCategoryId";
-            lblCategoryId.Size = new Size(69, 15);
+            lblCategoryId.Size = new Size(88, 20);
             lblCategoryId.TabIndex = 15;
             lblCategoryId.Text = "Category ID";
             // 
             // lblPlayerRId
             // 
             lblPlayerRId.AutoSize = true;
-            lblPlayerRId.Location = new Point(56, 296);
+            lblPlayerRId.Location = new Point(64, 395);
             lblPlayerRId.Name = "lblPlayerRId";
-            lblPlayerRId.Size = new Size(94, 15);
+            lblPlayerRId.Size = new Size(120, 20);
             lblPlayerRId.TabIndex = 17;
             lblPlayerRId.Text = "Players Range ID";
             // 
             // lblPublisherId
             // 
             lblPublisherId.AutoSize = true;
-            lblPublisherId.Location = new Point(56, 265);
+            lblPublisherId.Location = new Point(64, 353);
             lblPublisherId.Name = "lblPublisherId";
-            lblPublisherId.Size = new Size(70, 15);
+            lblPublisherId.Size = new Size(88, 20);
             lblPublisherId.TabIndex = 18;
             lblPublisherId.Text = "Publisher ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(325, 78);
+            label2.Location = new Point(371, 104);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(50, 20);
             label2.TabIndex = 19;
             label2.Text = "label2";
             // 
             // txtBName
             // 
-            txtBName.Location = new Point(276, 109);
-            txtBName.Margin = new Padding(3, 2, 3, 2);
+            txtBName.Location = new Point(316, 145);
             txtBName.Name = "txtBName";
-            txtBName.Size = new Size(305, 23);
+            txtBName.Size = new Size(348, 27);
             txtBName.TabIndex = 20;
             // 
             // txtBYear
             // 
-            txtBYear.Location = new Point(276, 146);
-            txtBYear.Margin = new Padding(3, 2, 3, 2);
+            txtBYear.Location = new Point(316, 194);
             txtBYear.Name = "txtBYear";
-            txtBYear.Size = new Size(305, 23);
+            txtBYear.Size = new Size(348, 27);
             txtBYear.TabIndex = 21;
             // 
             // txtBRating
             // 
-            txtBRating.Location = new Point(276, 184);
-            txtBRating.Margin = new Padding(3, 2, 3, 2);
+            txtBRating.Location = new Point(316, 246);
             txtBRating.Name = "txtBRating";
-            txtBRating.Size = new Size(305, 23);
+            txtBRating.Size = new Size(348, 27);
             txtBRating.TabIndex = 22;
             // 
             // txtBCategId
             // 
-            txtBCategId.Location = new Point(276, 224);
-            txtBCategId.Margin = new Padding(3, 2, 3, 2);
+            txtBCategId.Location = new Point(316, 299);
             txtBCategId.Name = "txtBCategId";
-            txtBCategId.Size = new Size(305, 23);
+            txtBCategId.Size = new Size(348, 27);
             txtBCategId.TabIndex = 23;
             // 
             // txtBPublishId
             // 
-            txtBPublishId.Location = new Point(276, 262);
-            txtBPublishId.Margin = new Padding(3, 2, 3, 2);
+            txtBPublishId.Location = new Point(316, 350);
             txtBPublishId.Name = "txtBPublishId";
-            txtBPublishId.Size = new Size(305, 23);
+            txtBPublishId.Size = new Size(348, 27);
             txtBPublishId.TabIndex = 24;
             // 
             // txtBPRId
             // 
-            txtBPRId.Location = new Point(276, 296);
-            txtBPRId.Margin = new Padding(3, 2, 3, 2);
+            txtBPRId.Location = new Point(316, 395);
             txtBPRId.Name = "txtBPRId";
-            txtBPRId.Size = new Size(305, 23);
+            txtBPRId.Size = new Size(348, 27);
             txtBPRId.TabIndex = 25;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(325, 335);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Location = new Point(371, 447);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(82, 22);
+            btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 26;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(499, 335);
-            btnCancel.Margin = new Padding(3, 2, 3, 2);
+            btnCancel.Location = new Point(570, 447);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(82, 22);
+            btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 27;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
             // Create_BoardGame
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 366);
+            ClientSize = new Size(800, 488);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtBPRId);
@@ -207,10 +199,8 @@
             Controls.Add(lblYear);
             Controls.Add(lblName);
             Controls.Add(lblBG);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Create_BoardGame";
             Text = "Create_BoardGame";
-            Load += Create_BoardGame_Load;
             ResumeLayout(false);
             PerformLayout();
         }
