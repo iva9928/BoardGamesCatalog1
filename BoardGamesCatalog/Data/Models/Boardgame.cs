@@ -13,7 +13,6 @@ namespace BoardGamesCatalog.Data.Models
     {
         [Key]
         public int Id { get; set; }
-
         [Required]
         [MaxLength(30)]
         public string Name { get; set; }
@@ -26,22 +25,25 @@ namespace BoardGamesCatalog.Data.Models
         [Required]
         public int CategoryId { get; set; }
 
-        //[Required]
-        //[ForeignKey(nameof(CategoryId))]
-        //public Category Category { get; set; }
+        [Required]
+        [ForeignKey(nameof(CategoryId))]
+        public Category Category { get; set; }
 
         [Required]
         public int PublisherId { get; set; }
 
-        //[Required]
-        //[ForeignKey(nameof(PublisherId))]
-        //public Publisher Publisher { get; set; }
+        [Required]
+        [ForeignKey(nameof(PublisherId))]
+        public Publisher Publisher { get; set; }
 
         [Required]
-        public int PlayersRangeId { get; set; }
+        public int PlayerRangeId { get; set; }
 
-        //[Required]
-        //[ForeignKey(nameof(PlayersRangeId))]
-        //public PlayerRange PlayersRange { get; set; }
+        [Required]
+        [ForeignKey(nameof(PlayerRangeId))]
+        public PlayerRange PlayerRange { get; set; }
+
+
+        public virtual ICollection<CreatorBoardgame> CreatorsBoardgames { get; set; } = new HashSet<CreatorBoardgame>();
     }
 }

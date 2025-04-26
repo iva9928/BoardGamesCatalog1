@@ -15,5 +15,6 @@ namespace BoardGamesCatalog.Data.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
+        public virtual ICollection<Boardgame> Boardgames { get; set; } = new HashSet<Boardgame>();
     }
 }

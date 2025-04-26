@@ -1,5 +1,5 @@
-﻿using BoardGamesCatalog.Business;
-using BoardGamesCatalog.Data.Models;
+﻿using BoardGamesCatalog.Data.Models;
+using BoardGamesCatalog.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +35,7 @@ namespace BoardGamesCatalog
             txtBRating.Text = boardgame.Rating.ToString();
             txtBCategId.Text = boardgame.CategoryId.ToString();
             txtBPublishId.Text = boardgame.PublisherId.ToString();
-            txtBPRId.Text = boardgame.PlayersRangeId.ToString();
+            txtBPRId.Text = boardgame.PlayerRangeId.ToString();
 
             this.boardGameId = boardgame.Id;
         }
@@ -74,17 +74,17 @@ namespace BoardGamesCatalog
             boardgame.Rating = decimal.Parse(txtBRating.Text);
             boardgame.CategoryId = int.Parse(txtBCategId.Text);
             boardgame.PublisherId = int.Parse(txtBPublishId.Text);
-            boardgame.PlayersRangeId = int.Parse(txtBPRId.Text);
+            boardgame.PlayerRangeId = int.Parse(txtBPRId.Text);
 
-            BoardGameBusiness boardGameBusiness = new BoardGameBusiness();
+            var repo = new BoardGamesRepository();
 
             if (boardgame.Id == -1)
             {
-                boardGameBusiness.Add(boardgame);
+                repo.CreateBoardGame(boardgame);
             }
             else
             {
-                boardGameBusiness.Update(boardgame);
+                repo.UpdateBoardGame(boardgame);
             }
                 
             this.DialogResult = DialogResult.OK;

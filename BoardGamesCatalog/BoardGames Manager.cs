@@ -1,5 +1,5 @@
-using BoardGamesCatalog.Business;
 using BoardGamesCatalog.Data.Models;
+using BoardGamesCatalog.Repositories;
 using Microsoft.Azure.Cosmos.Linq;
 using System.Data;
 
@@ -20,7 +20,6 @@ namespace BoardGamesCatalog
 
         private void ReadBoardGame()
         {
-
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID");
@@ -31,9 +30,9 @@ namespace BoardGamesCatalog
             dt.Columns.Add("PublisherId");
             dt.Columns.Add("PrayerRangeId");
 
-            BoardGameBusiness boardGameBusiness = new BoardGameBusiness();
+            BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
 
-            List<Boardgame> boardgames = boardGameBusiness.GetAll();
+            List<Boardgame> boardgames = boardGamesRepository.GetBoardGames();
 
             foreach (var boardgame in boardgames)
             {
@@ -44,7 +43,7 @@ namespace BoardGamesCatalog
                 row["Rating"] = boardgame.Rating;
                 row["CategoryId"] = boardgame.CategoryId;
                 row["PublisherId"] = boardgame.PublisherId;
-                row["PrayerRangeId"] = boardgame.PlayersRangeId;
+                row["PrayerRangeId"] = boardgame.PlayerRangeId;
 
                 dt.Rows.Add(row);
             }
@@ -77,8 +76,8 @@ namespace BoardGamesCatalog
 
             int boardGameId = int.Parse(val);
 
-            BoardGameBusiness boardGameBusiness = new BoardGameBusiness();
-            var boardGame = boardGameBusiness.Get(boardGameId);
+            BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
+            var boardGame = boardGamesRepository.GetBoardGame(boardGameId);
 
             if (boardGame == null)
             {
@@ -114,8 +113,8 @@ namespace BoardGamesCatalog
                 return;
             }
 
-            BoardGameBusiness boardGameBusiness = new BoardGameBusiness();
-            boardGameBusiness.Delete(boardGameId);
+            BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
+            boardGamesRepository.DeleteBoardGame(boardGameId);
 
             ReadBoardGame();
         }
