@@ -1,5 +1,4 @@
 ﻿
-using BoardGamesCatalog.Data;
 using BoardGamesCatalog.Data.Models;
 using Microsoft.Data.SqlClient;
 using System;
@@ -12,27 +11,48 @@ namespace BoardGamesCatalog.Repositories
 {
     public class BoardGamesRepository
     {
-        BoardGamesContext context = new BoardGamesContext();
-        //private void ExportEntities(BoardGamesContext context, string exportDir)
-        //{
-        //    var exportCreatorsWithTheirBoardgames = DataProcessor.Serializer.ExportCreatorsWithTheirBoardgames(context);
-        //    Console.WriteLine(exportCreatorsWithTheirBoardgames);
-        //    File.WriteAllText(exportDir + "Actual Result - ExportCreatorsWithTheirBoardgames.xml", exportCreatorsWithTheirBoardgames);
+        private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
-        //    var year = 2021;
-        //    double rating = 9.50;
-        //    var exportSellersWithMostBoardgames = DataProcessor.Serializer.ExportSellersWithMostBoardgames(context, year, rating);
-        //    Console.WriteLine(exportSellersWithMostBoardgames);
-        //    File.WriteAllText(exportDir + "Actual Result - ExportSellersWithMostBoardgames.json", exportSellersWithMostBoardgames);
-        //}
-
-      
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Boardgame> GetBoardGames()
         {
             List<Boardgame> boardgames = new List<Boardgame>();
             try
             {
-                boardgames = context.Boardgames.ToList();
+                using (SqlConnection connection = new SqlConnection(conectionString))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM Boardgames ORDER BY Id ASC";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                Boardgame boardgame = new Boardgame();
+                                boardgame.Id = reader.GetInt32(0);
+                                boardgame.Name = reader.GetString(1);
+                                boardgame.YearPublished = reader.GetInt32(2);
+                                boardgame.Rating = reader.GetDecimal(3);
+                                boardgame.CategoryId = reader.GetInt32(4);
+                                boardgame.PublisherId = reader.GetInt32(5);
+                                boardgame.PlayerRangeId = reader.GetInt32(6);
+
+                                boardgames.Add(boardgame);
+                            }
+
+                        }
+
+                    }
+
+
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +71,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(Configoration.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(conectionString))
                 {
                     //ccc
                     connection.Open();
@@ -100,7 +120,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(Configoration.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(conectionString))
                 {
                     connection.Open();
 
@@ -137,7 +157,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(Configoration.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(conectionString))
                 {
                     connection.Open();
 
@@ -177,7 +197,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(Configoration.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(conectionString))
                 {
                     connection.Open();
 
