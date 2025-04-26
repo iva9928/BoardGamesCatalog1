@@ -36,11 +36,11 @@ namespace BoardGamesCatalog.Data.Models
         [ForeignKey(nameof(PublisherId))]
         public Publisher Publisher { get; set; }
 
-        [Required]
-        public int PlayerRangeId { get; set; }
+        
+        public int PlayersRangeId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(PlayerRangeId))]
+        [ForeignKey(nameof(PlayersRangeId))]
         public PlayerRange PlayerRange { get; set; }
 
 
