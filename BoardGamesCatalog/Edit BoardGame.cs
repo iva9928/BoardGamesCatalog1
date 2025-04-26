@@ -1,5 +1,10 @@
-﻿using BoardGamesCatalog.Data.Models;
+﻿using BoardGamesCatalog.Controllers;
+using BoardGamesCatalog.Data;
+using BoardGamesCatalog.Data.Models;
+using BoardGamesCatalog.Models;
 using BoardGamesCatalog.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +19,12 @@ namespace BoardGamesCatalog
 {
     public partial class Edit_BoardGame : Form
     {
-        public Edit_BoardGame()
+        private readonly BoardGamesController _controller;
+
+        public Edit_BoardGame(BoardGamesController controller)
         {
             InitializeComponent();
+            _controller = controller;
             this.DialogResult = DialogResult.Cancel;
         }
 
@@ -26,7 +34,18 @@ namespace BoardGamesCatalog
         }
 
         private int boardGameId = -1;
+        public void LoadBoardgame(BoardgameListViewModel boardgame)
+        {
+            if (boardgame == null) return;
 
+            boardGameId = boardgame.Id;
+            txtBName.Text = boardgame.Name;
+            txtBYear.Text = boardgame.YearPublished.ToString();
+            txtBRating.Text = boardgame.Rating.ToString();
+            txtBCategId.Text = boardgame.CategoryId.ToString();
+            txtBPublishId.Text = boardgame.PublisherId.ToString();
+            txtBPRId.Text = boardgame.PlayersRangeId.ToString();
+        }
         public void EditBoardGame(Boardgame boardgame)
         {
             label2.Text = "" + boardgame.Id;
@@ -35,7 +54,7 @@ namespace BoardGamesCatalog
             txtBRating.Text = boardgame.Rating.ToString();
             txtBCategId.Text = boardgame.CategoryId.ToString();
             txtBPublishId.Text = boardgame.PublisherId.ToString();
-            txtBPRId.Text = boardgame.PlayerRangeId.ToString();
+            txtBPRId.Text = boardgame.PlayersRangeId.ToString();
 
             this.boardGameId = boardgame.Id;
         }
@@ -65,29 +84,37 @@ namespace BoardGamesCatalog
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void btnSave_Click_1(object sender, EventArgs e)
+        private async void btnSave_Click_1(object sender, EventArgs e)
         {
-            Boardgame boardgame = new Boardgame();
-            boardgame.Id = this.boardGameId;
-            boardgame.Name = this.txtBName.Text;
-            boardgame.YearPublished = int.Parse(txtBYear.Text);
-            boardgame.Rating = decimal.Parse(txtBRating.Text);
-            boardgame.CategoryId = int.Parse(txtBCategId.Text);
-            boardgame.PublisherId = int.Parse(txtBPublishId.Text);
-            boardgame.PlayerRangeId = int.Parse(txtBPRId.Text);
-
-            var repo = new BoardGamesRepository();
-
-            if (boardgame.Id == -1)
+            try
             {
-                repo.CreateBoardGame(boardgame);
+                var model = new BoardgameEditViewModel
+                {
+                    Id = boardGameId,
+                    Name = txtBName.Text,
+                    YearPublished = int.Parse(txtBYear.Text),
+                    Rating = decimal.Parse(txtBRating.Text),
+                    CategoryId = int.Parse(txtBCategId.Text),
+                    PublisherId = int.Parse(txtBPublishId.Text),
+                    PlayersRangeId = int.Parse(txtBPRId.Text)
+                };
+
+                bool updated = await _controller.UpdateAsync(model);
+
+                if (updated)
+                {
+                    MessageBox.Show("BoardGame updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update BoardGame.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                repo.UpdateBoardGame(boardgame);
+                MessageBox.Show($"Error while updating BoardGame: {ex.InnerException?.Message ?? ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                
-            this.DialogResult = DialogResult.OK;
         }
 
         private void Edit_BoardGame_Load_1(object sender, EventArgs e)

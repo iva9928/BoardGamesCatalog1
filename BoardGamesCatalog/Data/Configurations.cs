@@ -10,6 +10,6 @@ namespace BoardGamesCatalog.Data
     public static class Configurations
     {
         public static string ConnectionString =
-            "Data Source=PC\\SQLEXPRESS;Initial Catalog=Boardgames;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
     }
 }

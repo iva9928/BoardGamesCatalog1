@@ -47,7 +47,7 @@ namespace BoardGamesCatalog.Repositories
                                 boardgame.Rating = reader.GetDecimal(3);
                                 boardgame.CategoryId = reader.GetInt32(4);
                                 boardgame.PublisherId = reader.GetInt32(5);
-                                boardgame.PlayerRangeId = reader.GetInt32(6);
+                                boardgame.PlayersRangeId = reader.GetInt32(6);
 
                                 boardgames.Add(boardgame);
                             }
@@ -98,7 +98,7 @@ namespace BoardGamesCatalog.Repositories
                                 boardgame.Rating = reader.GetDecimal(3);
                                 boardgame.CategoryId = reader.GetInt32(4);
                                 boardgame.PublisherId = reader.GetInt32(5);
-                                boardgame.PlayerRangeId = reader.GetInt32(6);
+                                boardgame.PlayersRangeId = reader.GetInt32(6);
 
                                 return boardgame;
                             }
@@ -139,7 +139,7 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayersRangeId);
 
                         command.ExecuteNonQuery();
                     }
@@ -177,7 +177,7 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayersRangeId);
 
                         command.Parameters.AddWithValue("@Id", boardgame.Id);
 
