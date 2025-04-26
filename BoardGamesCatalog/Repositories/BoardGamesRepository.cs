@@ -1,8 +1,10 @@
 ﻿
+using BoardGamesCatalog.Data;
 using BoardGamesCatalog.Data.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +15,19 @@ namespace BoardGamesCatalog.Repositories
     {
         //private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
         
-       private readonly string conectionString = "Data Source=PC\\SQLEXPRESS;Initial Catalog=Boardgames;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+       //private readonly string conectionString = "Data Source=PC\\SQLEXPRESS;Initial Catalog=Boardgames;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         /// 
-
         public List<Boardgame> GetBoardGames()
         {
             List<Boardgame> boardgames = new List<Boardgame>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -75,7 +76,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     //ccc
                     connection.Open();
@@ -124,7 +125,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -161,7 +162,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -201,7 +202,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
