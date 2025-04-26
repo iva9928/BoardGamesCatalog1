@@ -80,11 +80,11 @@ namespace BoardGamesCatalog
 
             if (boardgame.Id == -1)
             {
-                repo.CreateBoardGame(boardgame);
+                //repo.CreateBoardGame(boardgame);
             }
             else
             {
-                repo.UpdateBoardGame(boardgame);
+                //repo.UpdateBoardGame(boardgame);
             }
                 
             this.DialogResult = DialogResult.OK;

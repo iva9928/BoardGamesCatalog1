@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoardGamesCatalog.DataProcessor
+namespace BoardGamesCatalog.Controllers
 {
-    internal class Deserializer
+    internal class HomeController
     {
     }
 }

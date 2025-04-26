@@ -1,6 +1,8 @@
+using AutoMapper;
+
 namespace BoardGamesCatalog
 {
-    internal static class Program
+    internal static class Program 
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -12,6 +14,9 @@ namespace BoardGamesCatalog
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+
+
         }
     }
 }

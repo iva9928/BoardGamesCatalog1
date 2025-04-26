@@ -67,56 +67,56 @@ namespace BoardGamesCatalog
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var val = this.boardgamesTable.SelectedRows[0].Cells[0].Value.ToString();
+            //var val = this.boardgamesTable.SelectedRows[0].Cells[0].Value.ToString();
 
-            if (val == null || val.Length == 0)
-            {
-                return;
-            }
+            //if (val == null || val.Length == 0)
+            //{
+            //    return;
+            //}
 
-            int boardGameId = int.Parse(val);
+            //int boardGameId = int.Parse(val);
 
-            BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
-            var boardGame = boardGamesRepository.GetBoardGame(boardGameId);
+            //BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
+            //var boardGame = boardGamesRepository.GetBoardGame(boardGameId);
 
-            if (boardGame == null)
-            {
-                return;
-            }
+            //if (boardGame == null)
+            //{
+            //    return;
+            //}
 
-            Edit_BoardGame edit_BoardGame = new Edit_BoardGame();
-            edit_BoardGame.EditBoardGame(boardGame);
+            //Edit_BoardGame edit_BoardGame = new Edit_BoardGame();
+            //edit_BoardGame.EditBoardGame(boardGame);
 
-            if (edit_BoardGame.ShowDialog() == DialogResult.OK)
-            {
-                ReadBoardGame();
-            }
+            //if (edit_BoardGame.ShowDialog() == DialogResult.OK)
+            //{
+            //    ReadBoardGame();
+            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var val = this.boardgamesTable.SelectedRows[0].Cells[0].Value.ToString();
+            //var val = this.boardgamesTable.SelectedRows[0].Cells[0].Value.ToString();
 
-            if (val == null || val.Length == 0)
-            {
-                return;
-            }
+            //if (val == null || val.Length == 0)
+            //{
+            //    return;
+            //}
 
-            int boardGameId = int.Parse(val);
+            //int boardGameId = int.Parse(val);
 
-            DialogResult dialogResult =
-                MessageBox.Show("Are you sure you want to delete this BoardGame?",
-                "Delete BoardGame", MessageBoxButtons.YesNo);
+            //DialogResult dialogResult =
+            //    MessageBox.Show("Are you sure you want to delete this BoardGame?",
+            //    "Delete BoardGame", MessageBoxButtons.YesNo);
 
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
+            //if (dialogResult == DialogResult.No)
+            //{
+            //    return;
+            //}
 
-            BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
-            boardGamesRepository.DeleteBoardGame(boardGameId);
+            //BoardGamesRepository boardGamesRepository = new BoardGamesRepository();
+            //boardGamesRepository.DeleteBoardGame(boardGameId);
 
-            ReadBoardGame();
+            //ReadBoardGame();
         }
     }
 }
