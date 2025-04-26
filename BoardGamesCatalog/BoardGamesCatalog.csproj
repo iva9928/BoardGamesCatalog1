@@ -16,10 +16,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DataProcessor\ImportDto\" />
-    <Folder Include="DataProcessor\ExportDto\" />
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>
