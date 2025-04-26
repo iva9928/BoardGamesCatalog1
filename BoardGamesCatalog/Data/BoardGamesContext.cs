@@ -15,8 +15,8 @@ namespace BoardGamesCatalog.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Creator> Creators { get; set; }
-        public DbSet<PlayerRange> PlayerRanges { get; set; }
-        public DbSet<CreatorBoardgame> CreatorBoardgames { get; set; }
+        public DbSet<PlayerRange> PlayersRanges { get; set; }
+        public DbSet<CreatorBoardgame> CreatorsBoardgames { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

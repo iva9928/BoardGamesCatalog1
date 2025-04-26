@@ -36,6 +36,7 @@ namespace BoardGamesCatalog.Controllers
             return await _context.Boardgames
          .Include(b => b.Category)
          .Include(b => b.Publisher)
+         .Include(b => b.PlayerRange)
          .Select(b => new BoardgameListViewModel
          {
              Id = b.Id,
@@ -81,6 +82,7 @@ namespace BoardGamesCatalog.Controllers
             var boardgame = await _context.Boardgames
                 .Include(b => b.Category)
                 .Include(b => b.Publisher)
+                .Include(b => b.PlayerRange)
                 .FirstOrDefaultAsync(b => b.Id == boardGameId);
 
             if (boardgame == null)
