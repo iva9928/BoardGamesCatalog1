@@ -11,9 +11,9 @@ namespace BoardGamesCatalog.Repositories
 {
     public class BoardGamesRepository
     {
-        private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-        //private readonly string conectionString = "Data Source=PC\\SQLEXPRESS;Initial Catalog=Boardgames;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        //private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
+        private readonly string conectionString = "Data Source=DESKTOP-QQ34EL6\\SQLEXPRESS;Initial Catalog=BoardGamesGatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
         /// <summary>
         /// 
         /// </summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardGamesCatalog.Models
 {
-    public class Address
+    internal class BoardgameDeleteViewModel
     {
     }
 }
