@@ -6,6 +6,7 @@ using Microsoft.Azure.Cosmos.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
+
 namespace BoardGamesCatalog
 {
     public partial class Form1 : Form

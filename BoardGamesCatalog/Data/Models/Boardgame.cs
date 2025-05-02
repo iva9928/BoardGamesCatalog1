@@ -36,7 +36,7 @@ namespace BoardGamesCatalog.Data.Models
         [ForeignKey(nameof(PublisherId))]
         public Publisher Publisher { get; set; }
 
-        
+
         public int PlayersRangeId { get; set; }
 
         [Required]
@@ -47,3 +47,4 @@ namespace BoardGamesCatalog.Data.Models
         public virtual ICollection<CreatorBoardgame> CreatorsBoardgames { get; set; } = new HashSet<CreatorBoardgame>();
     }
 }
+

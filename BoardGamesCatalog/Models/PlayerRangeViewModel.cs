@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BoardGamesCatalog.Models
 {
-    public class BoardgameDeleteViewModel 
+    public class PlayerRangeViewModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int YearPublished { get; set; }
+        public int PlayersMin { get; set; }
+        public int PlayersMax { get; set; }
     }
+
 }
