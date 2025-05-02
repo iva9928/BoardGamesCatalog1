@@ -13,10 +13,8 @@ namespace BoardGamesCatalog.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public int PlayersMin { get; set; }
-        
-        [Required]
+
         public int PlayersMax{ get; set; }
         public virtual ICollection<Boardgame> Boardgames { get; set; } = new HashSet<Boardgame>();
     }

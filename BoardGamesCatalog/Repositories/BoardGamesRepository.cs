@@ -1,8 +1,10 @@
 ﻿
+using BoardGamesCatalog.Data;
 using BoardGamesCatalog.Data.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +20,13 @@ namespace BoardGamesCatalog.Repositories
         /// 
         /// </summary>
         /// <returns></returns>
+        /// 
         public List<Boardgame> GetBoardGames()
         {
             List<Boardgame> boardgames = new List<Boardgame>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -43,7 +46,7 @@ namespace BoardGamesCatalog.Repositories
                                 boardgame.Rating = reader.GetDecimal(3);
                                 boardgame.CategoryId = reader.GetInt32(4);
                                 boardgame.PublisherId = reader.GetInt32(5);
-                                boardgame.PlayerRangeId = reader.GetInt32(6);
+                                boardgame.PlayersRangeId = reader.GetInt32(6);
 
                                 boardgames.Add(boardgame);
                             }
@@ -72,7 +75,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     //ccc
                     connection.Open();
@@ -94,7 +97,7 @@ namespace BoardGamesCatalog.Repositories
                                 boardgame.Rating = reader.GetDecimal(3);
                                 boardgame.CategoryId = reader.GetInt32(4);
                                 boardgame.PublisherId = reader.GetInt32(5);
-                                boardgame.PlayerRangeId = reader.GetInt32(6);
+                                boardgame.PlayersRangeId = reader.GetInt32(6);
 
                                 return boardgame;
                             }
@@ -121,7 +124,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -135,7 +138,7 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayersRangeId);
 
                         command.ExecuteNonQuery();
                     }
@@ -158,7 +161,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 
@@ -173,7 +176,7 @@ namespace BoardGamesCatalog.Repositories
                         command.Parameters.AddWithValue("@Rating", boardgame.Rating);
                         command.Parameters.AddWithValue("@CategoryId", boardgame.CategoryId);
                         command.Parameters.AddWithValue("@PublisherId", boardgame.PublisherId);
-                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayerRangeId);
+                        command.Parameters.AddWithValue("@PlayersRangeId", boardgame.PlayersRangeId);
 
                         command.Parameters.AddWithValue("@Id", boardgame.Id);
 
@@ -198,7 +201,7 @@ namespace BoardGamesCatalog.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(conectionString))
+                using (SqlConnection connection = new SqlConnection(Configurations.ConnectionString))
                 {
                     connection.Open();
 

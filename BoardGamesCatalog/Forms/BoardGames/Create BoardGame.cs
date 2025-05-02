@@ -1,49 +1,69 @@
-﻿using BoardGamesCatalog.Data.Models;
-using BoardGamesCatalog.Repositories;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BoardGamesCatalog.Controllers;
+using BoardGamesCatalog.Data;
+using BoardGamesCatalog.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BoardGamesCatalog
 {
     public partial class Create_BoardGame : Form
     {
+        private readonly BoardGamesController _controller;
+
         public Create_BoardGame()
         {
             InitializeComponent();
             this.DialogResult = DialogResult.Cancel;
+
+            var options = new DbContextOptionsBuilder<BoardGamesContext>()
+                .UseSqlServer(Configurations.ConnectionString)
+                .Options;
+
+            var context = new BoardGamesContext(options);
+            _controller = new BoardGamesController(context);
+
+            this.Load += Create_BoardGame_Load;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void Create_BoardGame_Load(object sender, EventArgs e)
         {
-            Boardgame boardgame = new Boardgame(); 
-            boardgame.Name = this.txtBName.Text;
-            boardgame.YearPublished = int.Parse(txtBYear.Text);
-            boardgame.Rating = decimal.Parse(txtBRating.Text);
-            boardgame.CategoryId = int.Parse(txtBCategId.Text);
-            boardgame.PublisherId = int.Parse(txtBPublishId.Text);
-            boardgame.PlayerRangeId = int.Parse(txtBPRId.Text);
+            // Засега нищо не зареждаме тук
+        }
 
-            var repo = new BoardGamesRepository();
-            repo.CreateBoardGame(boardgame);
-            this.DialogResult = DialogResult.OK;
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var model = new BoardgameAddViewModel
+                {
+                    Name = txtBName.Text,
+                    YearPublished = int.Parse(txtBYear.Text),
+                    Rating = decimal.Parse(txtBRating.Text),
+                    CategoryId = int.Parse(txtBCategId.Text),
+                    PublisherId = int.Parse(txtBPublishId.Text),
+                    PlayersRangeId = int.Parse(txtBPRId.Text)
+                };
+
+                bool created = await _controller.CreateAsync(model);
+
+                if (created)
+                {
+                    MessageBox.Show("BoardGame created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create BoardGame.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error while creating BoardGame: {ex.InnerException?.Message ?? ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-
-        }
-
-        private void Create_BoardGame_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BoardGamesCatalog.Models
 {
-    internal class BoardgameListViewModel
+    public class BoardgameListViewModel
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int YearPublished { get; set; }
+        public decimal Rating { get; set; }
+
+        public int CategoryId { get; set; }
+        public int PublisherId { get; set; }
+        public int PlayersRangeId { get; set; }
     }
 }
