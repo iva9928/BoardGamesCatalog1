@@ -1,5 +1,6 @@
 ﻿using BoardGamesCatalog.Controllers;
 using BoardGamesCatalog.Data;
+using BoardGamesCatalog.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,21 +36,47 @@ namespace BoardGamesCatalog.Forms.References
         }
         private async void Report_BoardgamesByCategory_Load(object sender, EventArgs e)
         {
-            var categories = await _context.Categories.ToListAsync();
-            cmbCategories.DataSource = categories;
+            List<CategoryViewModel> categories = new List<CategoryViewModel>();
+
+            try
+            {
+                categories = await _context.Categories
+                    .Select(c => new CategoryViewModel
+                    {
+                        Id = c.Id,
+                        Name = c.Name
+                    }).ToListAsync();
+            }
+            catch (InvalidOperationException)
+            {
+                
+            }
+
             cmbCategories.DisplayMember = "Name";
             cmbCategories.ValueMember = "Id";
+            cmbCategories.DataSource = categories;
         }
+
 
         private async void btnLoad_Click(object sender, EventArgs e)
         {
-            if (cmbCategories.SelectedItem is null) return;
+            if (cmbCategories.SelectedItem is CategoryViewModel selectedCategory)
+            {
+                List<BoardgameListViewModel> games = new List<BoardgameListViewModel>();
 
-            var selectedCategoryId = (int)cmbCategories.SelectedValue;
-            var boardgames = await _controller.GetBoardgamesByCategoryAsync(selectedCategoryId);
+                try
+                {
+                    games = await _controller.GetBoardgamesByCategoryAsync(selectedCategory.Id);
+                }
+                catch (InvalidOperationException)
+                {
+                    
+                }
 
-            dgvBoardgames.DataSource = boardgames;
+                dgvBoardgames.DataSource = games;
+            }
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

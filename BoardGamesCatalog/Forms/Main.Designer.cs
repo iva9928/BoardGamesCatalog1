@@ -137,7 +137,7 @@
             button3.Name = "button3";
             button3.Size = new Size(216, 29);
             button3.TabIndex = 9;
-            button3.Text = "BoardgamesByYears";
+            button3.Text = "BoardgamesByAddress";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click_1;
             // 

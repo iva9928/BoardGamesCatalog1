@@ -96,7 +96,7 @@ namespace BoardGamesCatalog.Forms
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            Report_BoardgamesByYear createForm = new Report_BoardgamesByYear();
+            Report_BoardgamesByAddress createForm = new Report_BoardgamesByAddress();
             createForm.Show();
         }
     }
