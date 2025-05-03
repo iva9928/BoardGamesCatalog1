@@ -146,5 +146,16 @@ namespace BoardGamesCatalog.Forms.Creator
         {
             // Optional: handle clicks on the grid if needed
         }
+
+        private void bntMenu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

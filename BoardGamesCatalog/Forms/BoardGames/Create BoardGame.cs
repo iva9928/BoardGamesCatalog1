@@ -26,7 +26,7 @@ namespace BoardGamesCatalog
 
         private void Create_BoardGame_Load(object sender, EventArgs e)
         {
-            // Засега нищо не зареждаме тук
+            
         }
 
         private async void btnSave_Click(object sender, EventArgs e)

@@ -51,7 +51,7 @@ namespace BoardGamesCatalog.Forms.Category
                 row["ID"] = category.Id;
                 row["Name"] = category.Name;
 
-                dt.Rows.Add(row); 
+                dt.Rows.Add(row);
             }
 
             categoryTable.DataSource = dt;
@@ -72,7 +72,7 @@ namespace BoardGamesCatalog.Forms.Category
             }
         }
 
-        private async void  btnEdit_Click(object sender, EventArgs e)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
             if (categoryTable.SelectedRows.Count == 0)
             {
@@ -141,6 +141,17 @@ namespace BoardGamesCatalog.Forms.Category
             }
 
             await ReadCategory();
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

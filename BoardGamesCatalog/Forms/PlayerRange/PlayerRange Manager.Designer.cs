@@ -32,6 +32,8 @@
             btnEdit = new Button();
             btnAdd = new Button();
             playerRTable = new DataGridView();
+            label1 = new Label();
+            btnManu = new Button();
             ((System.ComponentModel.ISupportInitialize)playerRTable).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +80,37 @@
             playerRTable.Size = new Size(1032, 435);
             playerRTable.TabIndex = 10;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom;
+            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Italic);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(127, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(768, 25);
+            label1.TabIndex = 16;
+            label1.Text = "List of PlayerRanges";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // btnManu
+            // 
+            btnManu.Location = new Point(994, 570);
+            btnManu.Name = "btnManu";
+            btnManu.Size = new Size(94, 29);
+            btnManu.TabIndex = 17;
+            btnManu.Text = "Menu";
+            btnManu.UseVisualStyleBackColor = true;
+            btnManu.Click += btnManu_Click;
+            // 
             // PlayerRange_Manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1145, 597);
+            BackColor = Color.FromArgb(224, 224, 224);
+            ClientSize = new Size(1145, 611);
+            Controls.Add(btnManu);
+            Controls.Add(label1);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
@@ -100,5 +128,7 @@
         private Button btnEdit;
         private Button btnAdd;
         private DataGridView playerRTable;
+        private Label label1;
+        private Button btnManu;
     }
 }

@@ -77,7 +77,7 @@ namespace BoardGamesCatalog.Forms.Address
             var val = addressTable.SelectedRows[0].Cells[0].Value?.ToString();
             if (!int.TryParse(val, out int id)) return;
 
-            var address = await _controller.GetByIdAddressAsync(id);    
+            var address = await _controller.GetByIdAddressAsync(id);
             if (address == null)
             {
                 MessageBox.Show("Address not found.");
@@ -121,6 +121,12 @@ namespace BoardGamesCatalog.Forms.Address
         private void Address_Manager_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
         }
     }
 }

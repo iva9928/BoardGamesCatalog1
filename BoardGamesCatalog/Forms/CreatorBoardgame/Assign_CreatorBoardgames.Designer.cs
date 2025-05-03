@@ -94,7 +94,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1047, 465);
+            BackColor = Color.FromArgb(192, 192, 255);
+            ClientSize = new Size(723, 465);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(clbBoardgames);

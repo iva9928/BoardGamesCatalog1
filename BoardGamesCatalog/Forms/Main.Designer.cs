@@ -38,13 +38,15 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // btnBoardGames
             // 
-            btnBoardGames.Location = new Point(258, 156);
+            btnBoardGames.Location = new Point(31, 124);
             btnBoardGames.Name = "btnBoardGames";
-            btnBoardGames.Size = new Size(222, 29);
+            btnBoardGames.Size = new Size(267, 29);
             btnBoardGames.TabIndex = 0;
             btnBoardGames.Text = "BoardGames";
             btnBoardGames.UseVisualStyleBackColor = true;
@@ -52,9 +54,9 @@
             // 
             // btnCategory
             // 
-            btnCategory.Location = new Point(258, 201);
+            btnCategory.Location = new Point(31, 182);
             btnCategory.Name = "btnCategory";
-            btnCategory.Size = new Size(94, 29);
+            btnCategory.Size = new Size(267, 29);
             btnCategory.TabIndex = 1;
             btnCategory.Text = "Category";
             btnCategory.UseVisualStyleBackColor = true;
@@ -62,9 +64,9 @@
             // 
             // btnCreator
             // 
-            btnCreator.Location = new Point(258, 264);
+            btnCreator.Location = new Point(31, 243);
             btnCreator.Name = "btnCreator";
-            btnCreator.Size = new Size(94, 29);
+            btnCreator.Size = new Size(267, 29);
             btnCreator.TabIndex = 2;
             btnCreator.Text = "Creator";
             btnCreator.UseVisualStyleBackColor = true;
@@ -72,9 +74,9 @@
             // 
             // btnPublisher
             // 
-            btnPublisher.Location = new Point(258, 299);
+            btnPublisher.Location = new Point(31, 301);
             btnPublisher.Name = "btnPublisher";
-            btnPublisher.Size = new Size(94, 29);
+            btnPublisher.Size = new Size(267, 29);
             btnPublisher.TabIndex = 3;
             btnPublisher.Text = "Publisher";
             btnPublisher.UseVisualStyleBackColor = true;
@@ -82,9 +84,9 @@
             // 
             // btnAddress
             // 
-            btnAddress.Location = new Point(268, 334);
+            btnAddress.Location = new Point(31, 365);
             btnAddress.Name = "btnAddress";
-            btnAddress.Size = new Size(94, 29);
+            btnAddress.Size = new Size(267, 29);
             btnAddress.TabIndex = 4;
             btnAddress.Text = "Address";
             btnAddress.UseVisualStyleBackColor = true;
@@ -92,7 +94,7 @@
             // 
             // btnPlayerRange
             // 
-            btnPlayerRange.Location = new Point(258, 382);
+            btnPlayerRange.Location = new Point(31, 423);
             btnPlayerRange.Name = "btnPlayerRange";
             btnPlayerRange.Size = new Size(267, 29);
             btnPlayerRange.TabIndex = 5;
@@ -103,9 +105,9 @@
             // 
             // btnCB
             // 
-            btnCB.Location = new Point(548, 346);
+            btnCB.Location = new Point(31, 487);
             btnCB.Name = "btnCB";
-            btnCB.Size = new Size(176, 29);
+            btnCB.Size = new Size(267, 29);
             btnCB.TabIndex = 6;
             btnCB.Text = "CreatorBoardgame";
             btnCB.UseVisualStyleBackColor = true;
@@ -113,9 +115,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(565, 101);
+            button1.Location = new Point(479, 264);
             button1.Name = "button1";
-            button1.Size = new Size(188, 29);
+            button1.Size = new Size(216, 29);
             button1.TabIndex = 7;
             button1.Text = "BoardgamesByPublisher";
             button1.UseVisualStyleBackColor = true;
@@ -123,7 +125,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(520, 201);
+            button2.Location = new Point(479, 335);
             button2.Name = "button2";
             button2.Size = new Size(216, 29);
             button2.TabIndex = 8;
@@ -133,7 +135,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(508, 264);
+            button3.Location = new Point(479, 403);
             button3.Name = "button3";
             button3.Size = new Size(216, 29);
             button3.TabIndex = 9;
@@ -141,11 +143,34 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(72, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(172, 26);
+            label1.TabIndex = 10;
+            label1.Text = "Chose a model:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Showcard Gothic", 12F, FontStyle.Italic);
+            label2.Location = new Point(479, 195);
+            label2.Name = "label2";
+            label2.Size = new Size(211, 26);
+            label2.TabIndex = 11;
+            label2.Text = "Chose a reference:";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Ivory;
+            ClientSize = new Size(744, 569);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -160,6 +185,7 @@
             Text = "Main";
             Load += Main_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -174,5 +200,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private Label label1;
+        private Label label2;
     }
 }

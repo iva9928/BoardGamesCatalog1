@@ -60,8 +60,8 @@ namespace BoardGamesCatalog.Forms.Publisher
                 await LoadPublishersAsync();
         }
 
-        
-        
+
+
         private void Publisher_Manager_Load(object sender, EventArgs e)
         {
 
@@ -122,6 +122,12 @@ namespace BoardGamesCatalog.Forms.Publisher
             {
                 MessageBox.Show("Could not delete publisher.");
             }
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
         }
     }
 }

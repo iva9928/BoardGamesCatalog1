@@ -54,7 +54,7 @@ namespace BoardGamesCatalog.Forms.CreatorBoardgame
 
             creatorBoardgameTable.DataSource = dt;
         }
-        
+
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
@@ -83,6 +83,12 @@ namespace BoardGamesCatalog.Forms.CreatorBoardgame
         private void creatorBoardgameTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
         }
     }
 }

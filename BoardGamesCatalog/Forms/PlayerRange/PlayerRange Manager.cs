@@ -89,7 +89,7 @@ namespace BoardGamesCatalog.Forms.PlayerRange
             }
         }
 
-        private async void  btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (playerRTable.SelectedRows.Count == 0)
             {
@@ -119,6 +119,17 @@ namespace BoardGamesCatalog.Forms.PlayerRange
         private void PlayerRange_Manager_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
         }
     }
 }

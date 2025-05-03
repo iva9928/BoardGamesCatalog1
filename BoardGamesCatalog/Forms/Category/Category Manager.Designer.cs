@@ -32,6 +32,8 @@
             btnEdit = new Button();
             btnDelete = new Button();
             btnAdd = new Button();
+            label1 = new Label();
+            btnManu = new Button();
             ((System.ComponentModel.ISupportInitialize)categoryTable).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +80,37 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom;
+            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Italic);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(124, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(768, 25);
+            label1.TabIndex = 15;
+            label1.Text = "List of Categories";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // btnManu
+            // 
+            btnManu.Location = new Point(979, 551);
+            btnManu.Name = "btnManu";
+            btnManu.Size = new Size(94, 29);
+            btnManu.TabIndex = 16;
+            btnManu.Text = "Menu";
+            btnManu.UseVisualStyleBackColor = true;
+            btnManu.Click += btnManu_Click;
+            // 
             // Category_Manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1119, 542);
+            BackColor = Color.FromArgb(255, 224, 192);
+            ClientSize = new Size(1119, 592);
+            Controls.Add(btnManu);
+            Controls.Add(label1);
             Controls.Add(btnAdd);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
@@ -100,5 +128,7 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnAdd;
+        private Label label1;
+        private Button btnManu;
     }
 }

@@ -1,6 +1,7 @@
 using BoardGamesCatalog.Controllers;
 using BoardGamesCatalog.Data;
 using BoardGamesCatalog.Data.Models;
+using BoardGamesCatalog.Forms;
 using BoardGamesCatalog.Repositories;
 using Microsoft.Azure.Cosmos.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -46,9 +47,9 @@ namespace BoardGamesCatalog
             dt.Columns.Add("Rating");
             dt.Columns.Add("CategoryId");
             dt.Columns.Add("PublisherId");
-            dt.Columns.Add("PlayersRangeId"); 
+            dt.Columns.Add("PlayersRangeId");
 
-            var boardgames = await _controller.GetAllAsync(); 
+            var boardgames = await _controller.GetAllAsync();
 
             foreach (var boardgame in boardgames)
             {
@@ -59,7 +60,7 @@ namespace BoardGamesCatalog
                 row["Rating"] = boardgame.Rating;
                 row["CategoryId"] = boardgame.CategoryId;
                 row["PublisherId"] = boardgame.PublisherId;
-                row["PlayersRangeId"] = boardgame.PlayersRangeId; 
+                row["PlayersRangeId"] = boardgame.PlayersRangeId;
                 dt.Rows.Add(row);
             }
 
@@ -154,6 +155,12 @@ namespace BoardGamesCatalog
             }
 
             ReadBoardGame();
+        }
+
+        private void btnManu_Click(object sender, EventArgs e)
+        {
+            Main menu = new Main();
+            menu.Show();
         }
     }
 }

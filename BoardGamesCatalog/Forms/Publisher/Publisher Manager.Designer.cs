@@ -32,6 +32,8 @@
             btnDelete = new Button();
             btnEdit = new Button();
             btnAdd = new Button();
+            label1 = new Label();
+            btnManu = new Button();
             ((System.ComponentModel.ISupportInitialize)publishersTable).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +80,36 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click_1;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom;
+            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Italic);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(61, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(768, 25);
+            label1.TabIndex = 16;
+            label1.Text = "List of Publishers";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnManu
+            // 
+            btnManu.Location = new Point(948, 574);
+            btnManu.Name = "btnManu";
+            btnManu.Size = new Size(94, 29);
+            btnManu.TabIndex = 17;
+            btnManu.Text = "Menu";
+            btnManu.UseVisualStyleBackColor = true;
+            btnManu.Click += btnManu_Click;
+            // 
             // Publisher_Manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 578);
+            BackColor = Color.Tan;
+            ClientSize = new Size(1054, 625);
+            Controls.Add(btnManu);
+            Controls.Add(label1);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
@@ -100,5 +127,7 @@
         private Button btnDelete;
         private Button btnEdit;
         private Button btnAdd;
+        private Label label1;
+        private Button btnManu;
     }
 }

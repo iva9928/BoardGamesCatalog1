@@ -28,25 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnDelete = new Button();
             btnAdd = new Button();
             creatorBoardgameTable = new DataGridView();
+            btnManu = new Button();
             ((System.ComponentModel.ISupportInitialize)creatorBoardgameTable).BeginInit();
             SuspendLayout();
             // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(897, 52);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
-            btnDelete.TabIndex = 17;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-            // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(48, 35);
+            btnAdd.Location = new Point(509, 60);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 15;
@@ -58,7 +48,7 @@
             // 
             creatorBoardgameTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             creatorBoardgameTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            creatorBoardgameTable.Location = new Point(36, 87);
+            creatorBoardgameTable.Location = new Point(31, 108);
             creatorBoardgameTable.MultiSelect = false;
             creatorBoardgameTable.Name = "creatorBoardgameTable";
             creatorBoardgameTable.RowHeadersVisible = false;
@@ -68,12 +58,23 @@
             creatorBoardgameTable.TabIndex = 14;
             creatorBoardgameTable.CellContentClick += creatorBoardgameTable_CellContentClick;
             // 
+            // btnManu
+            // 
+            btnManu.Location = new Point(969, 560);
+            btnManu.Name = "btnManu";
+            btnManu.Size = new Size(94, 29);
+            btnManu.TabIndex = 16;
+            btnManu.Text = "Menu";
+            btnManu.UseVisualStyleBackColor = true;
+            btnManu.Click += btnManu_Click;
+            // 
             // CreatorBoardgame_Manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1105, 556);
-            Controls.Add(btnDelete);
+            BackColor = Color.FromArgb(192, 192, 255);
+            ClientSize = new Size(1105, 611);
+            Controls.Add(btnManu);
             Controls.Add(btnAdd);
             Controls.Add(creatorBoardgameTable);
             Name = "CreatorBoardgame_Manager";
@@ -84,9 +85,8 @@
         }
 
         #endregion
-
-        private Button btnDelete;
         private Button btnAdd;
         private DataGridView creatorBoardgameTable;
+        private Button btnManu;
     }
 }

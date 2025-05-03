@@ -36,8 +36,24 @@ namespace BoardGamesCatalog.Forms.CreatorBoardgame
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var selectedCreator = (Data.Models.Creator)cmbCreators.SelectedItem;
-            var selectedBoardgames = clbBoardgames.CheckedItems.Cast<Boardgame>().Select(bg => bg.Id).ToList();
+        
+            if (cmbCreators.SelectedItem is not BoardGamesCatalog.Data.Models.Creator selectedCreator)
+            {
+                MessageBox.Show("Please select a creator.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+        
+            var selectedBoardgames = clbBoardgames.CheckedItems
+                .Cast<Boardgame>()
+                .Select(bg => bg.Id)
+                .ToList();
+
+            if (selectedBoardgames.Count == 0)
+            {
+                MessageBox.Show("Please select at least one board game.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var model = new CreatorBoardgameViewModel
             {
@@ -45,15 +61,27 @@ namespace BoardGamesCatalog.Forms.CreatorBoardgame
                 BoardgameIds = selectedBoardgames
             };
 
-            await _controller.AssignBoardgamesToCreatorAsync(model);
+            try
+            {
+                
+                await _controller.AssignBoardgamesToCreatorAsync(model);
 
-            MessageBox.Show("Boardgames assigned to creator successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Boardgames assigned to creator successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            var managerForm = new CreatorBoardgame_Manager(_controller, model.CreatorId);
-            managerForm.Show();
+                
+                this.DialogResult = DialogResult.OK;
+                this.Close();
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                
+                Task.Run(() =>
+                {
+                    Application.Run(new CreatorBoardgame_Manager(_controller, model.CreatorId));
+                });
+            }
+            catch (InvalidOperationException)
+            {
+              
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -63,15 +91,22 @@ namespace BoardGamesCatalog.Forms.CreatorBoardgame
 
         private async void Assign_CreatorBoardgames_Load(object sender, EventArgs e)
         {
-            var creators = await _context.Creators.ToListAsync();
-            cmbCreators.DataSource = creators;
-            cmbCreators.DisplayMember = "FirstName";
-            cmbCreators.ValueMember = "Id";
+            try
+            {
+                var creators = await _context.Creators.ToListAsync();
+                cmbCreators.DataSource = creators;
+                cmbCreators.DisplayMember = "FirstName"; 
+                cmbCreators.ValueMember = "Id";
 
-            var boardgames = await _controller.GetAllBoardgamesAsync();
-            clbBoardgames.DataSource = boardgames;
-            clbBoardgames.DisplayMember = "Name";
-            clbBoardgames.ValueMember = "Id";
+                var boardgames = await _controller.GetAllBoardgamesAsync();
+                clbBoardgames.DataSource = boardgames;
+                clbBoardgames.DisplayMember = "Name";
+                clbBoardgames.ValueMember = "Id";
+            }
+            catch (InvalidOperationException)
+            {
+               
+            }
         }
     }
 }

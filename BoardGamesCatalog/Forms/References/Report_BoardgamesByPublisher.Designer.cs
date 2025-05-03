@@ -86,6 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(973, 531);
             Controls.Add(dgvBoardgames);
             Controls.Add(btnCancel);
