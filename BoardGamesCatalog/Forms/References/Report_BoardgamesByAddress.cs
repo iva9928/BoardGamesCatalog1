@@ -51,10 +51,10 @@ namespace BoardGamesCatalog.Forms.References
             }
             catch (InvalidOperationException)
             {
-                // Optional: Handle error
+                
             }
 
-            cmbAddresses.DisplayMember = "Town";      // показваме града
+            cmbAddresses.DisplayMember = "Town";  
             cmbAddresses.ValueMember = "Id";
             cmbAddresses.DataSource = addresses;
         }
@@ -84,7 +84,7 @@ namespace BoardGamesCatalog.Forms.References
                 }
                 catch (InvalidOperationException)
                 {
-                    // Optional: log or handle exception
+                    
                 }
 
                 dgvBoardgames.DataSource = games;
